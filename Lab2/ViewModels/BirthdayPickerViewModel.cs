@@ -114,6 +114,7 @@ namespace KMA.ProgrammingInCSharp2020.Lab2.ViewModels
                 }
                 catch (Exception e)
                 {
+                    Info = "";
                     LoaderManager.Instance.HideLoader();
                     MessageBox.Show(e.Message);
                 }
