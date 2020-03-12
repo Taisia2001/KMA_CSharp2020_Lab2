@@ -22,18 +22,18 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0"  HorizontalAlignment="Left" VerticalAlignment="Center" FontStyle="Oblique" FontWeight="DemiBold"  FontSize="16" Content="Name"/>
-        <TextBox Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Margin="5" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Margin="5" Text="{Binding Name, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Label Grid.Row="2"  HorizontalAlignment="Left" VerticalAlignment="Center" FontStyle="Oblique" FontWeight="DemiBold"  FontSize="16" Content="Surame"/>
-        <TextBox Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Margin="5" Text="{Binding Surname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Margin="5" Text="{Binding Surname, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Label Grid.Row="4"  HorizontalAlignment="Left" VerticalAlignment="Center" FontStyle="Oblique" FontWeight="DemiBold"  FontSize="16" Content="Email"/>
-        <TextBox Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Margin="5" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+        <TextBox Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="30" Margin="5" Text="{Binding Email, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"></TextBox>
         <Label Grid.Row="6"  HorizontalAlignment="Left" VerticalAlignment="Center" FontStyle="Oblique" FontWeight="DemiBold"  FontSize="16" Content="Birthday"/>
         <DatePicker  Grid.Row="7" HorizontalAlignment="Stretch"  VerticalAlignment="Center" Height="30" Margin="5" 
-                     FirstDayOfWeek="Monday" IsTodayHighlighted="True" SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                     FirstDayOfWeek="Monday" IsTodayHighlighted="True" SelectedDate="{Binding Date, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Grid.Row="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="DarkGray"
                 Margin="20 20 40 0" FontStyle="Italic" FontWeight="Bold"  Content="Submit" Command="{Binding SubmitCommand}" />
         <TextBlock  Grid.Row="9" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Stretch" TextAlignment="Center" 
-                   FontWeight="Bold" FontSize="18" Text="{Binding Info, Mode=oneWay, UpdateSourceTrigger=PropertyChanged}" />
+                   FontWeight="Bold" FontSize="18" Text="{Binding Info, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
         
      </Grid>
 </UserControl>

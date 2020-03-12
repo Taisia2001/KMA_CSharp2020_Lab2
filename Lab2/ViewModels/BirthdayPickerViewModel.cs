@@ -103,7 +103,7 @@ namespace KMA.ProgrammingInCSharp2020.Lab2.ViewModels
                 try
                 {
                     _person = new Person(Name, Surname, Email, (DateTime)Date);
-                    Info = $"Name: {_person.Name}\nSurname: {_person.Surname}\nEmail: {_person.Email}\nBirthday: {((DateTime)Date).Date}\nSun Sign: {_person.SunSign}" +
+                    Info = $"Name: {_person.Name}\nSurname: {_person.Surname}\nEmail: {_person.Email}\nBirthday: {((DateTime)Date).Day}.{((DateTime)Date).Month}.{((DateTime)Date).Year}\nSun Sign: {_person.SunSign}" +
                     $"\nChinese Sign: {_person.ChineseSign}\nIs Adult: {_person.IsAdult}\nIs Birthday: {_person.IsBirthday}";
                     LoaderManager.Instance.HideLoader();
                     if (_person.IsBirthday)

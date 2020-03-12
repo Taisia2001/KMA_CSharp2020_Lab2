@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KMA.ProgrammingInCSharp2020.Lab2.Exceptions;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace KMA.ProgrammingInCSharp2020.Lab2.Models
@@ -6,10 +7,10 @@ namespace KMA.ProgrammingInCSharp2020.Lab2.Models
     internal class Person
     {
         #region Fields
-        private string _name;
-        private string _surname;
-        private string _email;
-        private DateTime _date;
+        private readonly string _name;
+        private readonly string _surname;
+        private readonly string _email;
+        private readonly DateTime _date;
 
         private readonly bool _isAdult;
         private readonly bool _isBirthday;
@@ -24,20 +25,12 @@ namespace KMA.ProgrammingInCSharp2020.Lab2.Models
             {
                 return _name;
             }
-            set
-            {
-                _name = value;
-            }
         }
         public string Surname
         {
             get
             {
                 return _surname;
-            }
-            set
-            {
-                _surname = value;
             }
         }
         public string Email
@@ -46,10 +39,6 @@ namespace KMA.ProgrammingInCSharp2020.Lab2.Models
             {
                 return _email;
             }
-             set
-            {
-                    _email = value;                
-            }
         }
 
         public DateTime Date
@@ -57,10 +46,6 @@ namespace KMA.ProgrammingInCSharp2020.Lab2.Models
             get
             {
                 return _date;
-            }
-             set
-            {
-                _date = value;
             }
         }
 
@@ -97,9 +82,15 @@ namespace KMA.ProgrammingInCSharp2020.Lab2.Models
         {
             _name = name;
             _surname = surname;
-            Email = email;
-            _date = Date;
-
+            if (new EmailAddressAttribute().IsValid(email))
+            {
+                _email = email;
+            }
+            else
+            {
+                throw new InvalidEmailException("Error! Invalid email!");
+            }
+             _date = Date;
             _isAdult = ComputeAge() >= 18;
             _isBirthday = CheckBirthday();
             _sunSign = ComputeWesternZodiac();
@@ -210,12 +201,12 @@ namespace KMA.ProgrammingInCSharp2020.Lab2.Models
             }
             if (age < 0)
             {
-                throw new ArgumentException("Error!!! You can`t be born in the future!");
+                throw new UnbornPersonException("Error!!! You can`t be born in the future!");
             }
             
             if (age > 135)
             {
-                throw new ArgumentException("Error!!! You can`t be older than 135 years!");
+                throw new TooOldPersonException("Error!!! You can`t be older than 135 years!");
             }
             return age;
         }
